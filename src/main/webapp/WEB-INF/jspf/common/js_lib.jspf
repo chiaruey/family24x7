@@ -1,0 +1,14 @@
+	<script type="text/javascript" src="${requestScope.appPath}static/js/jquery/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/jquery/jquery.calculation.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/jquery/jquery.formatCurrency-1.4.0.js"></script>	
+	<script type="text/javascript" src="${requestScope.appPath}static/js/jquery/jquery.validate-1.13.1.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/jquery/jquery-ui-1.11.2.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/jquery/jquery.timepicker.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/date.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/angular/angular.min.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/angular-messages/angular-messages.min.js"></script>
+	<script type="text/javascript" src="${requestScope.appPath}static/js/spring-security-csrf-token-interceptor/spring-security-csrf-token-interceptor.min.js"></script>
+	
+	

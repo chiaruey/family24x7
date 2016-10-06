@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+  <!-- =======================================================  -->
+  <!-- Abstract definition  									-->
+  <!-- =======================================================  -->
+
+  <definition name=".abstract.two.column.view" template="/WEB-INF/tiles/template/two-column-template.jsp">
+      <put-attribute name="view" value="home" />   
+      <put-attribute name="header" value="/WEB-INF/tiles/attribute/header/header.jsp"/>
+      <put-attribute name="content" value="/WEB-INF/tiles/attribute/content/content.jsp"/>
+      <put-attribute name="leftbar" value="/WEB-INF/tiles/attribute/leftbar/leftbar.jsp"/>
+      <put-attribute name="footer" value="/WEB-INF/tiles/attribute/footer/footer.jsp"/>
+  </definition>
+  
+  <definition name=".abstract.main.view" template="/WEB-INF/tiles/template/main-template.jsp" >
+  	<put-attribute name="header" value="/WEB-INF/tiles/attribute/header/header.jsp"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/content.jsp" />
+  	<put-attribute name="footer" value="/WEB-INF/tiles/attribute/footer/footer.jsp"/>
+  </definition>
+
+  <definition name=".abstract.registration.view" template="/WEB-INF/tiles/template/registration-template.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/attribute/header/registration-header.jsp"/>
+      <put-attribute name="content" value="/WEB-INF/tiles/attribute/content/content.jsp"/>
+      <put-attribute name="footer" value="/WEB-INF/tiles/attribute/footer/footer.jsp"/>
+  </definition>  
+
+  <definition name=".abstract.access.help.view" template="/WEB-INF/tiles/template/access-help-template.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/attribute/header/access-help-header.jsp"/>
+      <put-attribute name="content" value="/WEB-INF/tiles/attribute/content/content.jsp"/>
+      <put-attribute name="footer" value="/WEB-INF/tiles/attribute/footer/footer.jsp"/>
+  </definition>  
+  
+  <!-- ============================================================================ -->
+  <!--         Error Pages                                                          -->
+  <!-- ============================================================================ -->  
+         
+  <!-- Error Page: UnSupported Browser Page -->  
+  <definition name="error-unsupported-browser.view" extends=".abstract.two.column.view">
+  	  <put-attribute name="header" value="/WEB-INF/tiles/attribute/header/simple-header.jsp"/>
+  	  <put-attribute name="content" value="/WEB-INF/tiles/attribute/content/error-unsupported-browser-content.jsp"/>
+      <put-attribute name="footer" value="/WEB-INF/tiles/attribute/footer/footer.jsp"/>
+  </definition> 
+  
+  <!-- ============================================================================ -->
+  <!--           Non Tabbed Pages   Two Column                                      -->
+  <!-- ============================================================================ -->  
+         
+  <!-- Log In Page -->  
+  <definition name="login.view" extends=".abstract.two.column.view">
+  	<put-attribute name="view" value="loginView" /> 
+  	<put-attribute name="header" value="/WEB-INF/tiles/attribute/header/login-header.jsp"/>
+  	<put-attribute name="leftbar" value="/WEB-INF/tiles/attribute/leftbar/loginIntro.jsp"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/login-content.jsp"/>
+  </definition> 
+  
+  <!-- ================================================= -->
+  <!--            Main Page                            -->
+  <!-- ================================================= -->  
+
+  <definition name="home.view" extends=".abstract.main.view" >
+  	<put-attribute name="view" value="homeView"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/home-content.jsp" />
+  </definition>
+
+  <definition name="money.view"  extends=".abstract.main.view" >
+  	<put-attribute name="view" value="moneyView"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/money-content.jsp" />
+  </definition>
+
+  <definition name="calendar.view" extends=".abstract.main.view" >
+  	<put-attribute name="view" value="calendarView"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/calendar-content.jsp" />
+  </definition>
+  
+  <definition name="calendar.day.view"  extends=".abstract.main.view" >
+  	<put-attribute name="view" value="calendarView"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/calendar-day-content.jsp" />
+  </definition>
+
+  <definition name="calendar.week.view"  extends=".abstract.main.view"  >
+  	<put-attribute name="view" value="calendarView"/>
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/calendar-week-content.jsp" />
+  </definition>
+  
+  <definition name="admin.view" extends=".abstract.main.view"  >
+  	<put-attribute name="view" value="adminView"/>
+  	<put-attribute name="content" value="manage.account.content.view" />
+  </definition>
+
+  <definition name="manage.family.view" extends=".abstract.main.view"  >
+  	<put-attribute name="view" value="adminView"/>
+  	<put-attribute name="content" value="manage.family.content.view" />
+  </definition>
+
+  <definition name="manage.address.view" extends=".abstract.main.view"  >
+  	<put-attribute name="view" value="adminView"/>
+  	<put-attribute name="content" value="manage.address.content.view" />
+  </definition>
+
+  <definition name="manage.monetary.transition.type.view" extends=".abstract.main.view" >
+  	<put-attribute name="view" value="adminView"/>
+  	<put-attribute name="content" value="manage.monetary.transition.type.content.view" />
+  </definition>
+    
+  <definition name="manage.family.content.view" template="/WEB-INF/tiles/template/admin-template.jsp" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/manage-family-content.jsp" />
+  </definition>
+  
+  <definition name="manage.address.content.view" template="/WEB-INF/tiles/template/admin-template.jsp">
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/manage-address-content.jsp" />
+  </definition>
+  
+   <definition name="manage.account.content.view" template="/WEB-INF/tiles/template/admin-template.jsp">
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/manage-account-content.jsp" />
+  </definition>
+   
+  <definition name="manage.monetary.transition.type.content.view" template="/WEB-INF/tiles/template/admin-template.jsp" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/manage-monetary-transition-type-content.jsp" />
+  </definition>  
+   
+  <!-- ================================================= -->
+  <!--            Registration Page                      -->
+  <!-- ================================================= -->  
+  
+  <definition name="reg.step1.view" extends=".abstract.registration.view" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/reg-step1-content.jsp" />
+  </definition>
+  
+  <definition name="reg.step2.view" extends=".abstract.registration.view" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/reg-step2-content.jsp" />
+  </definition>
+  
+   <definition name="reg.step3.view" extends=".abstract.registration.view" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/reg-step3-content.jsp" />
+  </definition>   
+  
+  <!-- ================================================= -->
+  <!--            Access Help Page                       -->
+  <!-- ================================================= -->  
+
+  <definition name="access.help.step1.view" extends=".abstract.access.help.view" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/access-help-step1-content.jsp" />
+  </definition>
+  
+  <definition name="access.help.step2.view" extends=".abstract.access.help.view" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/access-help-step2-content.jsp" />
+  </definition>
+
+  <definition name="access.help.step3.view" extends=".abstract.access.help.view" >
+  	<put-attribute name="content" value="/WEB-INF/tiles/attribute/content/access-help-step3-content.jsp" />
+  </definition>
+
+</tiles-definitions>
