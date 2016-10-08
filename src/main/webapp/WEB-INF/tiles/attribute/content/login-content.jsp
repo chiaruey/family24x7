@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="col-md-6">
+<span us-spinner="{radius:100, width:24, length: 32, position:'fixed'}"  spinner-key="spinner-1"></span>
 	<div class="container-fluid" ng-init="checked=false" ng-controller="LoginCtrl">
 	
 		<div class="form-messages errors "
