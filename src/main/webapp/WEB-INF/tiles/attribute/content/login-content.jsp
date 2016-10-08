@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="col-md-6">
-	<div ng-init="checked=false" ng-controller="LoginCtrl">
+	<div class="container-fluid" ng-init="checked=false" ng-controller="LoginCtrl">
 	
 		<div class="form-messages errors "
 			ng-show="vm.errorMessages.length > 0" ng-cloak>
@@ -68,15 +68,20 @@
 		</form>
 	</div>
 	
-	<div ng-init="checked=false" ng-controller="demoUsersController">
-		<form class="form-horizontal" role="form"
-		name="form" novalidate>
+	<div class="container-fluid" ng-init="checked=false" ng-controller="demoUsersController">
+		<form class="form-horizontal" role="form" name="form" novalidate>
 			<div class="row">
 				<div class="col-sm-offset-4 col-sm-8">
-					<div class="checkbox form-group ">
-						<label> <input type="checkbox" ng-model="checked" class="text-muted"
-							name="demouser"> Select to show demo users
-						</label>
+					<div class="form-group ">
+						<div class="col-sm-10">
+							<div class="checkbox">
+								<label> <input type="checkbox" ng-model="checked" class="text-muted"
+								name="demouser"> Select to show demo users
+							</label>
+							</div>
+							
+						</div>
+
 					</div>
 				</div>
 	

@@ -8,11 +8,14 @@
 		<p class="lead text-primary">Registration Step 1 of 3</p>
 		  <dl class="text-info">
 		    <dt>Smart</dt>
-		    <dd>- You are making the right decision for your family</dd>		  
+		    <dd>- You are making the right decision for your family</dd>
+		    <br />		  
 		    <dt>Secure</dt>
 		    <dd>- All the information is secured in the Amazon cloud</dd>
+		    <br />
 		    <dt>Next Step</dt>
-		    <dd>- Click on the button to enter your family information</dd>    		    		    
+		    <dd>- Click on the button to enter your family information</dd>    	
+		    <br />	    		    
 		  </dl>		
 	</div>
 	
