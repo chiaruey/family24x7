@@ -21,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.family.enums.RoleEnum;
 import com.family.enums.SecureQuestionEnum;
+import com.family.security.SecurityUtil;
 import com.family.service.AccountService;
+import com.family.service.AddressService;
 import com.family.service.bean.FamilyBean;
 import com.family.service.bean.UserBean;
 import com.family.web.controller.model.FamilyMemberModel;
@@ -42,10 +44,16 @@ public class RegistrationController {
 	enum RegStep {
 		Step1, Step2, Step3
 	}
+	
+
+	private static final String ADDRESS_UPDATED = "addressUpdated";
 
 	@Autowired
 	private AccountService accountService;
 
+	@Autowired
+	private AddressService addressService;
+	
 	@RequestMapping(value = "/registration/regStep1", method = RequestMethod.GET)
 	public ModelAndView regStep1(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("reg.step1.view");
@@ -99,6 +107,33 @@ public class RegistrationController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/registration/regStep3", method = RequestMethod.GET)
+	public ModelAndView regStep3(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("reg.step3.view");
+		request.getSession().setAttribute(REGISTRATION_STEP, RegStep.Step3);
+
+		mav.addObject("allRoles", RoleEnum.values());
+		mav.addObject("yearList", MyCalendarUtils.getYearList(100));
+		mav.addObject("monthList", MyCalendarUtils.getMonthList());
+		mav.addObject("dayList", MyCalendarUtils.getDayList());
+		FamilyMemberModel newFamilyMemberInfo = new FamilyMemberModel();
+		mav.addObject("newFamilyMemberInfo", newFamilyMemberInfo);
+
+		if (!StringUtils.isEmpty(request.getParameter("success"))) {
+			String success = request.getParameter("success");
+			if ("true".equalsIgnoreCase(success)
+					|| "false".equalsIgnoreCase(success)) {
+				mav.addObject("success", new Boolean(success));
+			}
+		}
+		if (!StringUtils.isEmpty(request.getParameter("errorMsg"))) {
+			String errorMsg = request.getParameter("errorMsg");
+			mav.addObject("errorMsg", errorMsg);
+		}
+
+		return mav;
+	}
+	
 	@RequestMapping(value = "/registration/getDateList.json", method = RequestMethod.GET)
 	public @ResponseBody Set<Integer> getDateList(
 			@RequestParam(value = "year", required = false) String yearStr,
@@ -277,4 +312,43 @@ public class RegistrationController {
 
 		return mav;
 	}
+	
+	
+	@RequestMapping(value = "/registration/updateAddress", method = RequestMethod.POST)
+	public ModelAndView updateAddress(HttpServletRequest request,
+			@RequestParam(value = "id", required = true) String id,
+			@RequestParam(value = "street", required = true) String street,
+			@RequestParam(value = "city", required = true) String city,
+			@RequestParam(value = "state", required = true) String state,
+			@RequestParam(value = "country", required = true) String country,
+			@RequestParam(value = "zip", required = true) String zip) {
+
+		ModelAndView mav = new ModelAndView("manage.address.view");
+
+		mav.addObject("user", SecurityUtil.getUserDetails().getUser());
+
+
+		try {
+			addressService.updateAddress(Long.parseLong(id), street, city,
+					state, country, zip);
+
+			UserBean loggedInUser = SecurityUtil.getUserDetails().getUser();
+			loggedInUser = accountService.findUserByUsername(loggedInUser.getUsername());
+			SecurityUtil.getUserDetails().setUser(loggedInUser);
+			FamilyBean family = accountService.findFamily(Long.valueOf(SecurityUtil.getUserDetails().getUser().getFamilyId()));
+			mav.addObject("family", family);
+			mav.addObject("success", true);
+
+			mav.addObject("user", loggedInUser);
+
+			mav.addObject(ADDRESS_UPDATED, true);
+		} catch (Exception e) {
+			logger.error("Fail to update address id = " + id, e);
+			mav.addObject("success", false);
+		}
+
+		return mav;
+	}
+
+
 }

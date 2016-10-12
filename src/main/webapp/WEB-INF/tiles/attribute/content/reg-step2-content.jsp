@@ -3,136 +3,187 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 	<div class="row">
-	
-	
-		<div class="col-md-5">
-			<h3 class="text-primary">Please add your family member</h3>
-			<p class="text-primary"><span class="glyphicon glyphicon-ok"></span>To add a new family member on Family24x7, please fill all fields, and Click on the <strong>ADD NEW FAMILY MEMBER</strong> button</p>
-			<p class="text-primary"><span class="glyphicon glyphicon-ok"></span>If no new family member to be added, please leave all fields blank and click on the <strong>I AM DONE</strong> button</p>
+		<div class="col-md-5 jumbotron">
 
-			<br /><br />
+			  <p class="lead text-primary">Registration Step 2 of 3</p>
+			  <dl class="text-info">
+			    <dt>To add a family member</dt>
+			    <dd>- Select the <strong>I have more family member</strong> check box
+			    <dd>- Fill all fields</dd>
+			    <dd>- Click on the <strong>ADD NEW FAMILY MEMBER</strong> button</dd>
+			    <br />		  
+			    <dt>To go to the next step</dt>
+			    <dd>- Leave all fields blank </dd>
+			    <dd>- Click on the <strong>Go to the next step</strong> button</dd>
+			    <br />   		    
+			  </dl>		
+
 			
-			<h2>Family Already Added</h2>
-			<table class="table table-bordered table-condensed">
-				<tbody>
-					<tr><td colspan="2"><strong>House Head</strong></td></tr>
-					<tr><th scope="row">Name:</th><td>${newMemberInfo.firstName }&nbsp;${newMemberInfo.lastName }</td></tr>
-					<tr><th scope="row">Email:</th><td>${newMemberInfo.email }</td></tr>
-					<tr><th scope="row">role:</th><td>${newMemberInfo.role }</td></tr>
-				</tbody>
-			</table>
-			
-			<c:forEach items="${newMemberInfo.familyList}" var="familyMember">
-				<br />
+			<br />
+			<c:if test="${! empty newMemberInfo.firstName}">
+				<p class="lead text-primary">Family Member List</p>
 				<table class="table table-bordered table-condensed">
-				<tbody>
-					<tr><th scope="row">Name:</th><td>${familyMember.firstName }&nbsp;${familyMember.lastName }</td></tr>
-					<tr><th scope="row">Email:</th><td>${familyMember.email }</td></tr>
-					<tr><th scope="row">role:</th><td>${familyMember.role }</td></tr>
-				</tbody>
-			</table>
-			</c:forEach>			
+					<tbody>
+						<tr><td colspan="2"><strong>House Head</strong></td></tr>
+						<tr><th scope="row">Name:</th><td>${newMemberInfo.firstName }&nbsp;${newMemberInfo.lastName}</td></tr>
+						<tr><th scope="row">Email:</th><td>${newMemberInfo.email }</td></tr>
+						<tr><th scope="row">role:</th><td>${newMemberInfo.role }</td></tr>
+					</tbody>
+				</table>
 			
-
-		</div>
+			</c:if>
+			
+			<br />
+			<c:if test="${newMemberInfo.familyList.size() > 0}">
+				<c:forEach items="${familyMember.role}" var="familyMember">
+					<br />
+					<table class="table table-bordered table-condensed">
+					<tbody>
+						<tr><th scope="row">Name:</th><td>${familyMember.firstName }&nbsp;${familyMember.lastName }</td></tr>
+						<tr><th scope="row">Email:</th><td>${familyMember.email }</td></tr>
+						<tr><th scope="row">role:</th><td>${familyMember.role }</td></tr>
+					</tbody>
+				</table>
+				</c:forEach>	
+			
+			</c:if>
+		</div>	
 	
 		<div class="col-md-7">
 		
 			<c:if test="${success != true }">
 				<div id="regErrorDiv" class="error"><span id="regErrorSpan">${errorMsg}</span></div>
 			</c:if>		
-			<sf:form cssClass="regForm" id="regStep2Form" method="post" action="${requestScope.appPath}registration/addNewFamilyMember" modelAttribute="newFamilyMemberInfo">
+			
+			<sf:form cssClass="form-horizontal" id="regStep2Form" method="post" action="${requestScope.appPath}registration/addNewFamilyMember" modelAttribute="newFamilyMemberInfo">
 
-				
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="username">Username:</label>
+					<div class="col-sm-9">
+					  <sf:input path="username" cssClass="form-control" placeholder=" Username" />
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="email">Email:</label>
+					<div class="col-sm-9">
+					  <sf:input path="email" cssClass="form-control" placeholder=" email" />
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="firstName">First Name:</label>
+					<div class="col-sm-9">
+					  <sf:input path="firstName" cssClass="form-control" placeholder=" first name" />
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="lastName">Last Name:</label>
+					<div class="col-sm-9">
+					  <sf:input path="lastName" cssClass="form-control" placeholder=" last name"/>
+					</div>
+				</div>
+		
+	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="password">Password:</label>
+					<div class="col-sm-9">
+					  <sf:input path="password" cssClass="form-control" placeholder=" password"/>
+					</div>
+				</div>
+		
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="repeatPassword">Repeat password:</label>
+					<div class="col-sm-9">
+					  <sf:input path="repeatPassword" cssClass="form-control" placeholder=" repeat password" />
+					</div>
+				</div>
 
-				<table class='table table-bordered'>
-									
-					<tr>
-						<th nowrap="nowrap" align="right">username:</th>
-						<td><sf:input path="username" cssClass="username" value="${newFamilyMemberInfo.username }"/></td>
-					</tr>
-				
-				
-					<tr>
-						<th nowrap="nowrap" align="right">Email:</th>
-						<td><sf:input path="email" cssClass="email" value="${newFamilyMemberInfo.email }"/></td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">First Name:</th>
-						<td><sf:input path="firstName" cssClass="firstName" value="${newFamilyMemberInfo.firstName }"/></td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">Last Name:</th>
-						<td><sf:input path="lastName" cssClass="lastName" value="${newFamilyMemberInfo.lastName}"/></td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">Password:</th>
-						<td><sf:password path="password" cssClass="password"  value=""/></td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">Repeat Password:</th>
-						<td><sf:password path="repeatPassword" id="repeatPassword" cssClass="password" size="20%" value=""/></td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">Date Of Birth:</th>
-						<td>
-							<sf:select cssClass="monthStyle" path="dobMonth" id="dobMonth">
-								<sf:option value="Month">Month:</sf:option>
-								<c:forEach items="${monthList}" var="month">
-									<sf:option value="${month}">${month + 1}</sf:option>
-								</c:forEach>
-							</sf:select>						
-							<sf:select cssClass="dayStyle" path="dobDay" id="dobDay">
-								<sf:option value="Day">Day:</sf:option>
-								<c:forEach items="${dayList}" var="day">
-									<sf:option value="${day-1}">${day}</sf:option>
-								</c:forEach>								
-							</sf:select>
-							<sf:select cssClass="yearStyle" path="dobYear" id="dobYear">
-								<sf:option value="Year">Year:</sf:option>
-								<c:forEach items="${yearList}" var="year">
-									<sf:option value="${year}">${year}</sf:option>
-								</c:forEach>
-							</sf:select>																		
-						</td>
-					</tr>					
-					<tr>
-						<th nowrap="nowrap" align="right">Gender:</th>
-						<td>
-							<sf:select path='gender' id='gender' cssClass='gender'>
-								<sf:option value="M">male</sf:option>
-								<sf:option value="F">female</sf:option>
-							</sf:select>
-						</td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">Role:</th>
-						<td>
-							<sf:select path='role' id='role' cssClass="role">
-								<c:forEach items="${allRoles}" var="role">
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="secureQuestionAnswer">Date Of Birth:</label>
+				    <div class="form-inline col-sm-9">
+				    	<div class="row">
+				    		<div class="col-sm-3">
+							    <sf:select cssClass="form-control" path="dobMonth" id="dobMonth">
+									<sf:option value="Month">Month:</sf:option>
+									<c:forEach items="${monthList}" var="month">
+										<sf:option value="${month}">${month + 1}</sf:option>
+									</c:forEach>
+								</sf:select> 			    		
+				    		</div>
+				    		<div class="col-sm-1 lead text-primary"> / </div>
+				    		<div class="col-sm-3">
+								<sf:select cssClass="form-control" path="dobDay" id="dobDay">
+									<sf:option value="Day">Day:</sf:option>
+									<c:forEach items="${dayList}" var="day">
+										<sf:option value="${day}">${day}</sf:option>
+									</c:forEach>
+								</sf:select> 				    		
+				    		</div>
+				    		<div class="col-sm-1 lead text-primary"> / </div>
+				    		<div class="col-sm-3">
+								<sf:select cssClass="form-control" path="dobYear" id="dobYear">
+									<sf:option value="Year">Year:</sf:option>
+									<c:forEach items="${yearList}" var="year">
+										<sf:option value="${year}">${year}</sf:option>
+									</c:forEach>
+								</sf:select>					    		
+				    		</div>			    		
+				    	</div>						
+				    </div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="gender">Gender:</label>
+					<div class="col-sm-9">
+						<sf:select path='gender' id='gender' cssClass='form-control"'>
+							<sf:option value="M">male</sf:option>
+							<sf:option value="F">female</sf:option>
+						</sf:select>
+					</div>
+				</div>
+	
+	
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="gender">Role:</label>
+					<div class="col-sm-9">
+						<sf:select path='role' id='role' cssClass='form-control"'>
+							<c:forEach items="${allRoles}" var="role">
+								<c:if test="${role.isAdmin() }">
 									<sf:option value="${role.name()}">${role.name()}</sf:option>
-								</c:forEach>
-							</sf:select>
-						</td>
-					</tr>				
-
-
-					<tr>
-						<th nowrap="nowrap" align="right">Administrator:</th>
-						<td>
-							<sf:select path='admin' id='admin' cssClass="admin">
-								<sf:option value="true">true</sf:option>
-								<sf:option value="false">false</sf:option>
-							</sf:select>
-						</td>
-					</tr>				
-					
-				</table>	
-					
-				<div class='regButtonDiv'>
-					<input class="btn btn-primary" type="submit" id="addFamilyBtn" value="Add new family member" />	
-					<input class="btn btn-default" type="submit" id="finishRegBtn" value="I am done" />	
+								</c:if>
+							</c:forEach>
+						</sf:select>
+					</div>
+				</div>
+						
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="gender">Administrator:</label>
+					<div class="col-sm-9">
+						<sf:select path='admin' id='admin' cssClass='form-control"'>
+							<sf:option value="true">true</sf:option>
+							<sf:option value="false">false</sf:option>
+						</sf:select>
+					</div>
 				</div>		
+				
+			    <div class="form-group">
+			      <div class="col-sm-offset-3 col-sm-9">
+			        <div class="checkbox">
+			          <label><input type="checkbox"> I have more family member</label>
+			        </div>
+			      </div>
+			    </div>
+						
+					
+			    <div class="form-group">
+			      <div class="col-sm-offset-3 col-sm-9">
+					<input class="btn btn-primary" type="submit" id="addFamilyBtn" value="Add new family member" />	
+					<input class="btn btn-default" type="submit" id="finishRegBtn" value="Go to the next step" />	
+			      </div>
+			    </div>			
+	
 			</sf:form>
 
 		</div>	

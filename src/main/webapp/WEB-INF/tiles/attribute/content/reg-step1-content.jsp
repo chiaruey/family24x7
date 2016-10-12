@@ -26,142 +26,178 @@
 				<span id="regErrorSpan">${errorMsg}</span>
 			</div>
 		</c:if>
-		<sf:form cssClass="regForm" id="regStep1Form"
+		<sf:form cssClass="form-horizontal" id="regStep1Form"
 			action="${requestScope.appPath}registration/addHouseHead"
 			method="post" modelAttribute="newMemberInfo">
-			<div class="table-responsive">
-				<table class='table table-bordered'>
-					<tr>
-						<th nowrap="nowrap" align="right">Family Name:</th>
-						<td><sf:input path="familyName" cssClass="familyName"
-								value="${newMemberInfo.familyName }" /></td>
-					</tr>
 	
-					<tr>
-						<th nowrap="nowrap" align="right">username:</th>
-						<td><sf:input path="username" cssClass="username"
-								value="${newMemberInfo.username }" /></td>
-					</tr>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="familyName">Family ID:</label>
+				<div class="col-sm-9">
+				  <sf:input path="familyName" cssClass="form-control"
+								value="${newMemberInfo.familyName }"  placeholder=" unique family id" />
+				</div>
+			</div>
 	
-					<tr>
-						<th nowrap="nowrap" align="right">Email:</th>
-						<td><sf:input path="email" cssClass="email"
-								value="${newMemberInfo.email }" /></td>
-					</tr>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="username">Username:</label>
+				<div class="col-sm-9">
+				  <sf:input path="username" cssClass="form-control" placeholder=" Username" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Email:</label>
+				<div class="col-sm-9">
+				  <sf:input path="email" cssClass="form-control" placeholder=" email" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="firstName">First Name:</label>
+				<div class="col-sm-9">
+				  <sf:input path="firstName" cssClass="form-control" placeholder=" first name" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="lastName">Last Name:</label>
+				<div class="col-sm-9">
+				  <sf:input path="lastName" cssClass="form-control" placeholder=" last name"/>
+				</div>
+			</div>
 	
-					<tr>
-						<th nowrap="nowrap" align="right">First Name:</th>
-						<td><sf:input path="firstName" cssClass="firstName"
-								value="${newMemberInfo.firstName }" /></td>
-					</tr>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="password">Password:</label>
+				<div class="col-sm-9">
+				  <sf:input path="password" cssClass="form-control" placeholder=" password"/>
+				</div>
+			</div>
 	
-					<tr>
-						<th nowrap="nowrap" align="right">Last Name:</th>
-						<td><sf:input path="lastName" cssClass="lastName"
-								value="${newMemberInfo.lastName}" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Password:</th>
-						<td><sf:password path="password" cssClass="password" value="" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Repeat password:</th>
-						<td><sf:password path="repeatPassword" id="repeatPassword"
-								cssClass="password" size="20%" value="" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Secure Question:</th>
-						<td><sf:select path="secureQuestion" id="secureQuestion"
-								cssClass="secureQuestion">
-								<c:forEach items="${secureQuestionList}" var="secureQuestion">
-									<sf:option value="${secureQuestion.id}">${secureQuestion.secureQuestionText}</sf:option>
-								</c:forEach>
-							</sf:select></td>
-					</tr>
-					<tr>
-						<th nowrap="nowrap" align="right">Secure Answer:</th>
-						<td><sf:password path="secureQuestionAnswer"
-								id="secureQuestionAnswer" cssClass="secureQuestionAnswer"
-								size="20%" value="" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Date Of Birth:</th>
-						<td><sf:select cssClass="monthStyle" path="dobMonth"
-								id="dobMonth">
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="repeatPassword">Repeat password:</label>
+				<div class="col-sm-9">
+				  <sf:input path="repeatPassword" cssClass="form-control" placeholder=" repeat password" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="secureQuestion">Secure Question:</label>
+				<div class="col-sm-9">
+					<sf:select path="secureQuestion" id="secureQuestion"
+						cssClass="form-control">
+						<c:forEach items="${secureQuestionList}" var="secureQuestion">
+							<sf:option value="${secureQuestion.id}">${secureQuestion.secureQuestionText}</sf:option>
+						</c:forEach>
+					</sf:select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="secureQuestionAnswer">Secure Answer:</label>
+				<div class="col-sm-9">
+				  <sf:input path="secureQuestionAnswer" cssClass="form-control" placeholder=" secure answer"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="secureQuestionAnswer">Date Of Birth:</label>
+			    <div class="form-inline col-sm-9">
+			    	<div class="row">
+			    		<div class="col-sm-3">
+						    <sf:select cssClass="form-control" path="dobMonth" id="dobMonth">
 								<sf:option value="Month">Month:</sf:option>
 								<c:forEach items="${monthList}" var="month">
 									<sf:option value="${month}">${month + 1}</sf:option>
 								</c:forEach>
-							</sf:select> <sf:select cssClass="dayStyle" path="dobDay" id="dobDay">
+							</sf:select> 			    		
+			    		</div>
+			    		<div class="col-sm-1 lead text-primary"> / </div>
+			    		<div class="col-sm-3">
+							<sf:select cssClass="form-control" path="dobDay" id="dobDay">
 								<sf:option value="Day">Day:</sf:option>
 								<c:forEach items="${dayList}" var="day">
 									<sf:option value="${day}">${day}</sf:option>
 								</c:forEach>
-							</sf:select> <sf:select cssClass="yearStyle" path="dobYear" id="dobYear">
+							</sf:select> 				    		
+			    		</div>
+			    		<div class="col-sm-1 lead text-primary"> / </div>
+			    		<div class="col-sm-3">
+							<sf:select cssClass="form-control" path="dobYear" id="dobYear">
 								<sf:option value="Year">Year:</sf:option>
 								<c:forEach items="${yearList}" var="year">
 									<sf:option value="${year}">${year}</sf:option>
 								</c:forEach>
-							</sf:select></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Gender:</th>
-						<td><sf:select path='gender' id='gender' cssClass='gender'>
-								<sf:option value="M">male</sf:option>
-								<sf:option value="F">female</sf:option>
-							</sf:select></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Role:</th>
-						<td><sf:select path='role' id='role' cssClass="role">
-								<c:forEach items="${allRoles}" var="role">
-									<c:if test="${role.isAdmin() }">
-										<sf:option value="${role.name()}">${role.name()}</sf:option>
-									</c:if>
-								</c:forEach>
-							</sf:select></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right"><div>
-								<span>Street:</span>
-							</div></th>
-						<td><sf:input path="street" value="" cssClass="street" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">City:</th>
-						<td><sf:input path="city" cssClass="city" value="" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">State:</th>
-						<td><sf:input path="state" cssClass="state" value="" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">Country:</th>
-						<td><sf:input path="country" cssClass="country" value="" /></td>
-					</tr>
-	
-					<tr>
-						<th nowrap="nowrap" align="right">ZIP:</th>
-						<td><sf:input path="zip" cssClass="zip" value="" /></td>
-					</tr>
-	
-				</table>
+							</sf:select>					    		
+			    		</div>			    		
+			    	</div>						
+			    </div>
 			</div>
-			<div>
-				<input id="addNewHouseHeadBtn"
-							class="btn btn-primary"
-							type="submit" value="Join Family 24x7" />
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="gender">Gender:</label>
+				<div class="col-sm-9">
+					<sf:select path='gender' id='gender' cssClass='form-control"'>
+						<sf:option value="M">male</sf:option>
+						<sf:option value="F">female</sf:option>
+					</sf:select>
+				</div>
 			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="gender">Role:</label>
+				<div class="col-sm-9">
+					<sf:select path='role' id='role' cssClass='form-control"'>
+						<c:forEach items="${allRoles}" var="role">
+							<c:if test="${role.isAdmin() }">
+								<sf:option value="${role.name()}">${role.name()}</sf:option>
+							</c:if>
+						</c:forEach>
+					</sf:select>
+				</div>
+			</div>
+				
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="street">Street:</label>
+				<div class="col-sm-9">
+				  <sf:input path="street" cssClass="form-control"  placeholder="street of your home"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="city">City:</label>
+				<div class="col-sm-9">
+				  <sf:input path="city" cssClass="form-control" placeholder="city of your home" />
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="state">State:</label>
+				<div class="col-sm-9">
+				  <sf:input path="state" cssClass="form-control"  placeholder="state of your home" />
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="state">Country:</label>
+				<div class="col-sm-9">
+				  <sf:input path="country" cssClass="form-control"  placeholder="country of your home" />
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="zip">Zip:</label>
+				<div class="col-sm-9">
+				  <sf:input path="zip" cssClass="form-control"  placeholder="zip of your home" />
+				</div>
+			</div>
+			
+		    <div class="form-group">
+		      <div class="col-sm-offset-3 col-sm-9">
+		        <input id="addNewHouseHeadBtn" class="btn btn-primary" type="submit" value="Join Family 24x7" />
+		      </div>
+		    </div>				
 
 		</sf:form>
 
