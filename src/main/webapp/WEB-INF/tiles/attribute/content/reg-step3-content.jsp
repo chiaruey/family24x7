@@ -88,9 +88,17 @@
 				      <div class="col-sm-10">
 				        <input type="zip" class="form-control" id="zip" placeholder="Enter zip">
 				      </div>
-				    </div>					
+				    </div>		
 				    <div class="form-group">
-				      <div class="col-sm-offset-3 col-sm-9">
+				      <div class="col-sm-offset-2 col-sm-10">
+				        <div class="checkbox">
+				          <label><input type="checkbox"> check to add home address </label>
+				        </div>
+				      </div>
+				    </div>
+											    			
+				    <div class="form-group">
+				      <div class="col-sm-offset-2 col-sm-10">
 						<input class="btn btn-primary" type="submit" id="addAddressBtn" value="Add home Address" />	
 						<input class="btn btn-default" type="submit" id="skilAddressBtn" value="I don't want to add address" />	
 				      </div>

@@ -53,19 +53,15 @@
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-sm-3" for="firstName">First Name:</label>
-				<div class="col-sm-9">
-				  <sf:input path="firstName" cssClass="form-control" placeholder=" first name" />
-				</div>
-			</div>
+				<label class="control-label col-sm-3" for="firstName">Full Name:</label>
 
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="lastName">Last Name:</label>
-				<div class="col-sm-9">
-				  <sf:input path="lastName" cssClass="form-control" placeholder=" last name"/>
-				</div>
+		    		<div class="col-xs-4">
+		    			<sf:input path="firstName" cssClass="form-control" placeholder=" first name" />
+		    		</div>
+		    		<div class="col-xs-4">
+		    			<sf:input path="lastName" cssClass="form-control" placeholder=" last name"/>
+		    		</div>			    									  
 			</div>
-	
 
 			<div class="form-group">
 				<label class="control-label col-sm-3" for="password">Password:</label>
@@ -102,35 +98,33 @@
 			
 			<div class="form-group">
 				<label class="control-label col-sm-3" for="secureQuestionAnswer">Date Of Birth:</label>
-			    <div class="form-inline col-sm-9">
-			    	<div class="row">
-			    		<div class="col-sm-3">
-						    <sf:select cssClass="form-control" path="dobMonth" id="dobMonth">
-								<sf:option value="Month">Month:</sf:option>
-								<c:forEach items="${monthList}" var="month">
-									<sf:option value="${month}">${month + 1}</sf:option>
-								</c:forEach>
-							</sf:select> 			    		
-			    		</div>
-			    		<div class="col-sm-1 lead text-primary"> / </div>
-			    		<div class="col-sm-3">
-							<sf:select cssClass="form-control" path="dobDay" id="dobDay">
-								<sf:option value="Day">Day:</sf:option>
-								<c:forEach items="${dayList}" var="day">
-									<sf:option value="${day}">${day}</sf:option>
-								</c:forEach>
-							</sf:select> 				    		
-			    		</div>
-			    		<div class="col-sm-1 lead text-primary"> / </div>
-			    		<div class="col-sm-3">
-							<sf:select cssClass="form-control" path="dobYear" id="dobYear">
-								<sf:option value="Year">Year:</sf:option>
-								<c:forEach items="${yearList}" var="year">
-									<sf:option value="${year}">${year}</sf:option>
-								</c:forEach>
-							</sf:select>					    		
-			    		</div>			    		
-			    	</div>						
+			    <div class="col-sm-9">
+		    		<div class="pull-left col-xs-3">
+					    <sf:select cssClass="form-control" path="dobMonth" id="dobMonth">
+							<sf:option value="Month">Month:</sf:option>
+							<c:forEach items="${monthList}" var="month">
+								<sf:option value="${month}">${month + 1}</sf:option>
+							</c:forEach>
+						</sf:select> 			    		
+		    		</div>
+		    		<div class="col-xs-1 lead text-primary"> / </div>
+		    		<div class="col-xs-3">
+						<sf:select cssClass="form-control" path="dobDay" id="dobDay">
+							<sf:option value="Day">Day:</sf:option>
+							<c:forEach items="${dayList}" var="day">
+								<sf:option value="${day}">${day}</sf:option>
+							</c:forEach>
+						</sf:select> 				    		
+		    		</div>
+		    		<div class="col-xs-1 lead text-primary"> / </div>
+		    		<div class="col-xs-3">
+						<sf:select cssClass="form-control" path="dobYear" id="dobYear">
+							<sf:option value="Year">Year:</sf:option>
+							<c:forEach items="${yearList}" var="year">
+								<sf:option value="${year}">${year}</sf:option>
+							</c:forEach>
+						</sf:select>					    		
+		    		</div>			    							
 			    </div>
 			</div>
 
@@ -157,42 +151,6 @@
 					</sf:select>
 				</div>
 			</div>
-				
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="street">Street:</label>
-				<div class="col-sm-9">
-				  <sf:input path="street" cssClass="form-control"  placeholder="street of your home"/>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="city">City:</label>
-				<div class="col-sm-9">
-				  <sf:input path="city" cssClass="form-control" placeholder="city of your home" />
-				</div>
-			</div>
-	
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="state">State:</label>
-				<div class="col-sm-9">
-				  <sf:input path="state" cssClass="form-control"  placeholder="state of your home" />
-				</div>
-			</div>
-	
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="state">Country:</label>
-				<div class="col-sm-9">
-				  <sf:input path="country" cssClass="form-control"  placeholder="country of your home" />
-				</div>
-			</div>
-	
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="zip">Zip:</label>
-				<div class="col-sm-9">
-				  <sf:input path="zip" cssClass="form-control"  placeholder="zip of your home" />
-				</div>
-			</div>
-			
 		    <div class="form-group">
 		      <div class="col-sm-offset-3 col-sm-9">
 		        <input id="addNewHouseHeadBtn" class="btn btn-primary" type="submit" value="Join Family 24x7" />
