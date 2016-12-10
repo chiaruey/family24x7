@@ -8,10 +8,10 @@
 	
 	<div class="calendarHeader">
 		
-		<div class="dayWeekMonthDiv" class="ui-buttonset">
-			<span  class="daySpan ui-corner-left dayWeekMonthSpan ui-state-default">Day</span>
-			<span class="weekSpan ui-state-default dayWeekMonthSpan">Week</span>
-			<span class="monthSpan ui-state-active ui-corner-right dayWeekMonthSpan">Month</span>
+		<div class="dayWeekMonthDiv row" class="ui-buttonset">
+			<span  class="daySpan ui-corner-left ui-state-default col-sm-4">Day</span>
+			<span class="weekSpan ui-state-default col-sm-4">Week</span>
+			<span class="monthSpan ui-state-active ui-corner-right col-sm-4">Month</span>
 		</div>
 	
 		<div id="monthScrollHeader" class="calendarScrollHeader ui-corner-all ui-state-default">

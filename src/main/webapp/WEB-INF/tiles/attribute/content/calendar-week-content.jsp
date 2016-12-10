@@ -7,11 +7,11 @@
 	<form id="calendarForm">
 		<div class="calendarHeader">
 			
-			<div class="dayWeekMonthDiv" class="ui-buttonset">
-				<span class="daySpan ui-corner-left dayWeekMonthSpan ui-state-default">Day</span>
-				<span class="weekSpan ui-state-active dayWeekMonthSpan">Week</span>
+			<div class="dayWeekMonthDiv row" class="ui-buttonset">
+				<span class="daySpan col-sm-4 ui-corner-left ui-state-default">Day</span>
+				<span class="weekSpan col-sm-4 ui-state-active">Week</span>
 				<span id="${weekCalendar.year}-${weekCalendar.month}"
-					class="monthSpan ui-state-default ui-corner-right dayWeekMonthSpan">Month</span>
+					class="monthSpan col-sm-4 ui-state-default ui-corner-right">Month</span>
 			</div>
 			
 			<div id="weekScrollHeader" class="calendarScrollHeader ui-corner-all ui-state-default">

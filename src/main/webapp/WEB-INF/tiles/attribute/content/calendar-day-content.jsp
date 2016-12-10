@@ -6,12 +6,14 @@
 <div class="contentWrapper">
 
 	<div class="calendarHeader">
-		<div class="dayWeekMonthDiv" class="ui-buttonset">
+		<div class="dayWeekMonthDiv row" class="ui-buttonset">
+
 			<span 
-				class="daySpan ui-corner-left dayWeekMonthSpan ui-state-active">Day</span>
-			<span id="${dayCalendar.dateString}" class="weekSpan ui-state-default dayWeekMonthSpan">Week</span>
+				class="daySpan col-sm-4 ui-corner-left ui-state-active">Day</span>
+			<span id="${dayCalendar.dateString}" class="weekSpan col-sm-4 ui-state-default">Week</span>
 			<span id="${dayCalendar.year}-${dayCalendar.month}"
-				class="monthSpan ui-state-default ui-corner-right dayWeekMonthSpan">Month</span>
+				class="monthSpan col-sm-4 ui-state-default ui-corner-right">Month</span>
+
 		</div>
 		
 		<div id="dayScrollHeader" class="calendarScrollHeader ui-corner-all ui-state-default">
@@ -29,8 +31,9 @@
 		</div>
 
 		<c:if test="${dayCalendar.today == 'true'}">
-			<span id="dailyToday" class="bold padding5px">TODAY</span>
+			<span id="dailyToday" class="bold">TODAY</span>
 		</c:if>
+
 				
 		<div class="addEventHeader">
 			<form id="calendarForm">

@@ -601,15 +601,6 @@ div.content table.wallMessageList td {
 	padding: 0;
 }
 
-.dayWeekMonthSpan {
-	display: inline-block;
-	width: 31%;
-	padding: 3px 0;
-	margin:0;
-	height:20px;
-	text-align:center;
-}
-
 .calendarWeekTable {
 	width:90%;
 	margin-left:auto;
@@ -680,7 +671,7 @@ div.content table.wallMessageList td {
 	float: left;
 	width: 185px;	
 	height:20px;
-	font-size: 1.1em;
+	font-size: 1em;
 	display: table-cell;
 	text-align: center;
 }
