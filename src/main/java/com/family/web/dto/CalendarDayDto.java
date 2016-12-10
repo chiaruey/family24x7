@@ -32,7 +32,7 @@ public class CalendarDayDto extends StandardDto implements Serializable {
 	private String monthAbbr;
 	private String dayName;
 
-	private int year;
+	private String year;
 
 	private String dateString;
 	private String sundayDateString;
@@ -74,7 +74,7 @@ public class CalendarDayDto extends StandardDto implements Serializable {
 		this.monthAbbr = monthAbbrSdf.format(tempCalendar.getTime());
 
 		this.dayName = dayNameSdf.format(tempCalendar.getTime());
-		this.year = tempCalendar.get(Calendar.YEAR);
+		this.year = String.valueOf(tempCalendar.get(Calendar.YEAR)).substring(2);
 		this.month = String.valueOf(tempCalendar.get(Calendar.MONTH));
 		this.dayOfMonth = String.valueOf(tempCalendar.get(Calendar.DAY_OF_MONTH));
 		this.dayOfWeek = tempCalendar.get(Calendar.DAY_OF_WEEK);
@@ -150,7 +150,7 @@ public class CalendarDayDto extends StandardDto implements Serializable {
 		return dayName;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
