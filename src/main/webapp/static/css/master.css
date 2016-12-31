@@ -463,36 +463,32 @@ div.content table.wallMessageList td {
  * Administration                 *
  * ============================== */
  
-#adminContentWrapper {
+/* #adminContentWrapper {
 	min-height:600px;
 }
 
 #adminContentPanelWrapper {
 	min-height:400px;
 }
-
+ */
 
 #myInfoWrapper {
 	margin: 5px;	
 	border: 1px solid #2694E8;
-	padding: 5px 15px;
+	padding: 5px;
 }
 
-#myInfoWrapper #myInfoTitle {
-	padding: 10px 2px;
-}
-
- .adminView .centerPanelWrapper {
+/*  .adminView .centerPanelWrapper {
  	left: 21%;	
 	width: 75%;
-}
+} */
 
- #adminleftPanel {
+/*  #adminleftPanel {
 	width:20%;
 	margin-right: 10px;
 	padding: 0;
 }
-
+ */
 #adminLeftMenu {
 	border: none;
     color: #2779AA;

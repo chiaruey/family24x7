@@ -1,14 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-	<div id="adminContentWrapper" class="contentWrapper">
+	<div class="row">
 		
-		<div id="adminContentPanelWrapper" class="centerPanelWrapper">
-			<tiles:insertAttribute name="content" />
-		</div>	
-		<div id="adminleftPanel">
+		<div class="col-md-4">
 			<div class="ui-corner-all" id="myInfoWrapper">
-				<h2 id="myInfoTitle"> My Information </h2>
+				<h2> My Information </h2>
 				<table>
 					<tbody>
 						<tr><th scope="row">Username:</th><td>${user.username }</td></tr>					
@@ -22,17 +19,23 @@
 			</div>
 			
 			<br />
-			<ul id="adminLeftMenu">
-				<li id="manageAccountLink" class="selected jqButton"><span>Manage Account Settings</span></li>
+			
+			<div class="list-group">
+				<a  href="javascript:void(0)" id="manageAccountLink" class="list-group-item active"><span>Manage Account Settings</span></a>
 				<c:if test="${user.admin}"> 
-					<li id="manageFamilyLink" class="default jqButton"><span>Manage My Family</span></li>
+					<a href="javascript:void(0)" id="manageFamilyLink" class="list-group-item"><span>Manage My Family</span></a>
 				</c:if>
-				<li id="manageAddressLink" class="default jqButton"><span>My Home Address</span></li>
+				<a href="javascript:void(0)" id="manageAddressLink" class="list-group-item"><span>My Home Address</span></a>
 				<c:if test="${user.admin}"> 
-					<li id="manageTracTypeLink" class="default jqButton"><span>Manage Money Transition Type</span></li>
+					<a href="javascript:void(0)" id="manageTracTypeLink" class="list-group-item"><span>Manage Money Transition Type</span></a>
 				</c:if>
-			</ul>			
+			</div>			
 		</div>
+		
+		<div  class="col-md-8">
+			<tiles:insertAttribute name="content" />
+		</div>	
+		
 
 	</div> 
 	<script type="text/javaScript" src="${requestScope.appPath}static/js/family/family.admin.js" ></script>

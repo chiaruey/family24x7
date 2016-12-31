@@ -200,25 +200,25 @@ $(document).ready(function() {
 	});
 	
 	if ($('.adminType').hasClass('manageAccount')) {
-		$('#manageAccountLink').addClass('selected').removeClass('default');
-		$('#manageAddressLink').addClass('default').removeClass('selected');
-		$('#manageFamilyLink').addClass('default').removeClass('selected');		
-		$('#manageTracTypeLink').addClass('default').removeClass('selected');
+		$('#manageAccountLink').addClass('active');
+		$('#manageAddressLink').removeClass('active');
+		$('#manageFamilyLink').removeClass('active');		
+		$('#manageTracTypeLink').removeClass('active');
 	} else if ($('.adminType').hasClass('manageAddress')) {
-		$('#manageAccountLink').addClass('default').removeClass('selected');
-		$('#manageAddressLink').addClass('selected').removeClass('default');
-		$('#manageFamilyLink').addClass('default').removeClass('selected');		
-		$('#manageTracTypeLink').addClass('default').removeClass('selected');
+		$('#manageAccountLink').removeClass('active');
+		$('#manageAddressLink').addClass('active');
+		$('#manageFamilyLink').removeClass('active');		
+		$('#manageTracTypeLink').removeClass('active');
 	} else if ($('.adminType').hasClass('manageFamily')) {
-		$('#manageAccountLink').addClass('default').removeClass('selected');
-		$('#manageFamilyLink').addClass('selected').removeClass('default');
-		$('#manageAddressLink').addClass('default').removeClass('selected');
-		$('#manageTracTypeLink').addClass('default').removeClass('selected');
+		$('#manageAccountLink').removeClass('active');
+		$('#manageFamilyLink').addClass('active');
+		$('#manageAddressLink').removeClass('active');
+		$('#manageTracTypeLink').removeClass('active');
 	} else {
-		$('#manageAccountLink').addClass('default').removeClass('selected');
-		$('#manageFamilyLink').addClass('default').removeClass('selected');
-		$('#manageAddressLink').addClass('default').removeClass('selected');
-		$('#manageTracTypeLink').addClass('selected').removeClass('default');		
+		$('#manageAccountLink').removeClass('active');
+		$('#manageFamilyLink').removeClass('active');
+		$('#manageAddressLink').removeClass('active');
+		$('#manageTracTypeLink').addClass('active');		
 	}	  
 
 	// ================================
